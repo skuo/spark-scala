@@ -1,0 +1,13 @@
+*.pid
+*.log*
+*~
+*.pyc
+target
+project
+.classpath
+.project
+.settings
+mem.properties
+mem.script
+*.DS_Store
+

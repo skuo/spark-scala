@@ -25,8 +25,9 @@ object TextStreaming {
        val words = lines.flatMap(_.split(" "))
        val wc = words.map(x => (x, 1)).reduceByKey((x, y) => x + y)
 
-       wc.saveAsTextFiles("/Users/skuo/data/spark/output")
-       wc.print
+       // Interesting the code below writes data to output-timestamp, e.g. /Users/skuo/dta/spark/output-1473297090000/
+       //wc.saveAsTextFiles("/Users/skuo/data/spark/output")
+       //wc.print
 
        // Start our streaming context and wait for it to "finish"
        println("TextStreaming: sscStart")

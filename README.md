@@ -52,3 +52,15 @@ output-1473359775000/part-00000
 output-1473359805000/part-00000
 (they,28)
 (beautiful,8)
+
+#===============================
+# Build and Run steps for UpdateTextStreaming, batch=15 seconds
+# track "infinitely growing" counts
+# output to directories ~/data/spark/output-timestamp 
+#
+$ sbt package
+$ spark-submit --class "UpdateTextStreaming" --master local[2] target/scala-2.11/spark-scala-project_2.11-1.0.jar
+$ cd ~/data/spark
+$ rm streaming/*
+$ cp input.txt streaming/input.txt  # to trigger UpdateTextStreaming
+$ cp input.txt streaming/input2.txt # to trigger UpdateTextStreaming

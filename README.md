@@ -64,3 +64,9 @@ $ cd ~/data/spark
 $ rm streaming/*
 $ cp input.txt streaming/input.txt  # to trigger UpdateTextStreaming
 $ cp input.txt streaming/input2.txt # to trigger UpdateTextStreaming
+
+#===============================
+# Build and Run steps for EmployeeHive
+#
+$ sbt package
+$ spark-submit --class "EmployeeHive" --master local[2] target/scala-2.11/spark-scala-project_2.11-1.0.jar

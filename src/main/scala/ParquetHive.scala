@@ -2,7 +2,7 @@ import org.apache.spark.sql.catalyst.ScalaReflection
 import org.apache.spark.sql.DataFrame
 import org.apache.spark.sql.hive.HiveContext
 import org.apache.spark.sql.Row
-import org.apache.spark.sql.types.StructType
+import org.apache.spark.sql.types.{StructType, StructField, StringType}
 import org.apache.spark.SparkConf
 import org.apache.spark.SparkContext
 import org.apache.log4j.{Level, Logger}
@@ -34,6 +34,8 @@ object ParquetHive {
     val rootLogger = Logger.getRootLogger()
     rootLogger.setLevel(Level.WARN)
 
+    /* ====================================
+     * Method 1: use case class and ScalaReflection
     val persons = sc.textFile("/Users/skuo/data/spark/person.csv").map(_.split(",")).map(p => Person(p(0),p(1),p(2)))
     //persons.collect().foreach(println)
 
@@ -41,6 +43,14 @@ object ParquetHive {
     val personsRowRDD = persons.map(p => Row(p.firstName,p.lastName,p.gender))
 
     val schema = ScalaReflection.schemaFor[Person].dataType.asInstanceOf[StructType]
+       =================================== */
+
+    /* =================================== 
+     * Method 2:
+       =================================== */
+    val schemaString = "firstName,lastName,gender"
+    val schema = StructType(schemaString.split(",").map(fieldName => StructField(fieldName, StringType, true)))
+    val personsRowRDD = sc.textFile("/Users/skuo/data/spark/person.csv").map(_.split(",")).map(e => Row(e(0),e(1),e(2)))
 
     val personsDF = hiveCtx.createDataFrame(personsRowRDD,schema)
     personsDF.registerTempTable("person")

@@ -70,3 +70,9 @@ $ cp input.txt streaming/input2.txt # to trigger UpdateTextStreaming
 #
 $ sbt package
 $ spark-submit --class "EmployeeHive" --master local[2] target/scala-2.11/spark-scala-project_2.11-1.0.jar
+
+#===============================
+# Build and Run steps for ParquetHive
+#
+$ sbt package
+$ spark-submit --class "ParquetHive" --master local[2] target/scala-2.11/spark-scala-project_2.11-1.0.jar

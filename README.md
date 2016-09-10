@@ -76,3 +76,11 @@ $ spark-submit --class "EmployeeHive" --master local[2] target/scala-2.11/spark-
 #
 $ sbt package
 $ spark-submit --class "ParquetHive" --master local[2] target/scala-2.11/spark-scala-project_2.11-1.0.jar
+
+#===============================
+# Build and Run steps for StructuredStreaming
+# nc -lk 9999
+# Anything typed in the "nc" terminal will appear in Spark console outpu
+#
+$ sbt package
+$ spark-submit --class "StructuredStreaming" --master local[2] target/scala-2.11/spark-scala-project_2.11-1.0.jar

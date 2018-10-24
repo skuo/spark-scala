@@ -2,6 +2,7 @@
 *.log*
 *~
 *.pyc
+project
 workspace.xml
 target
 metastore_db

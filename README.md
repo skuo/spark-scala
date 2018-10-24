@@ -1,6 +1,6 @@
 # spark-scala
 
-#===============================
+```bash
 # Build steps for SparkWordCount
 $ git clone git@github.com:skuo/spark-scala.git
 $ cd spark-scala
@@ -10,6 +10,7 @@ $ find . -name "*.jar" -print
 $ spark-submit --class "SparkWordCount" --master local[2] target/scala-2.11/spark-scala-project_2.11-1.0.jar 
 
 The output is in the outfile/ directory.
+```
 
 #===============================
 # Build and Run steps for SocketStreaming

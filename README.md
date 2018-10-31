@@ -100,3 +100,9 @@ $ sbt package
 $ spark-submit --class "SparkDataFrame" --master local[2] target/scala-2.11/spark-scala-project_2.11-1.0.jar
 ```
 
+```bash
+# Build and Run steps for MyAverage
+#
+$ sbt package
+$ spark-submit --class "MyAverage" --master local[2] target/scala-2.11/spark-scala-project_2.11-1.0.jar
+```

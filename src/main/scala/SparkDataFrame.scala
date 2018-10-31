@@ -34,5 +34,15 @@ object SparkDataFrame {
     df.filter($"age" > 21).show()
     // Count people by age
     df.groupBy("age").count().show()
+
+    // Register the DataFrame as a SQL temporary view
+    df.createOrReplaceTempView("people")
+    val sqlDF = spark.sql("SELECT * FROM people")
+    sqlDF.show()
+
+    // Register the DataFrame as a global temporary view
+    // df.createGlobalTempView("people")  // not working
+    // Global temporary view is tied to a system preserved database 'global_temp'
+    // spark.sql("SELECT * from global_temp.people").show()
   }
 }

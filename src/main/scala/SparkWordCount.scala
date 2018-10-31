@@ -14,7 +14,7 @@ object SparkWordCount {
       // val sc = new SparkContext( "local", "Word Count", "/usr/local/spark", Nil, Map(), Map()) 
 
       /*creating an inputRDD to read text file (in.txt) through Spark context*/ 
-      val input = sc.textFile("/Users/skuo/data/spark/input.txt") 
+      val input = sc.textFile("src/main/data/README.md") 
 
       /* Transform the inputRDD into countRDD */ 
       val valcount = input.flatMap(line ⇒ line.split(" ")) 

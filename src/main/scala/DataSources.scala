@@ -1,4 +1,4 @@
-import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.{SaveMode, SparkSession}
 import org.apache.log4j.{Level, Logger}
 import java.io.File
 
@@ -36,9 +36,7 @@ object DataSources {
     usersDF.select("name", "favorite_color").write.save(dirName)
     // json to parquet
     val peopleDF = spark.read.format("json").load("src/main/data/people.json")
-    dirName = "outfile/namesAndAges.parquet"
-    dir = new File(dirName)
-    deleteDir(dir)
-    peopleDF.select("name", "age").write.format("parquet").save(dirName)
+    // Use SaveMode instead of deleting dir explicitly
+    peopleDF.select("name", "age").write.format("parquet").mode(SaveMode.Overwrite).save(dirName)
   }
 }

@@ -22,6 +22,10 @@ Now use sbt to create a scala project
 sbt eclipse
 ```
 
-# Start Up Scala IDE and import the newly created project
+## Start Up Scala IDE and import the newly created project
 
 Start up Scala IDE and click "File > Open Projects from File System ..."
+
+## README-Spark.md
+
+Please reference README-Spark.md for building and submitting Scala job to Spark.

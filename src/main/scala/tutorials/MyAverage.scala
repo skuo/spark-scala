@@ -1,3 +1,5 @@
+package tutorials
+
 import org.apache.spark.sql.{Row, SparkSession}
 import org.apache.spark.sql.expressions.MutableAggregationBuffer
 import org.apache.spark.sql.expressions.UserDefinedAggregateFunction

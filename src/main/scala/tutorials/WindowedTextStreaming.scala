@@ -1,3 +1,5 @@
+package tutorials
+
 import org.apache.spark.SparkConf
 import org.apache.spark.streaming.StreamingContext
 import org.apache.spark.streaming.StreamingContext._

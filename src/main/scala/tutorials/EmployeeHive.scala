@@ -1,3 +1,5 @@
+package tutorials
+
 import org.apache.spark.sql.hive.HiveContext
 import org.apache.spark.sql.DataFrame
 import org.apache.spark.SparkConf

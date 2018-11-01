@@ -1,3 +1,5 @@
+package tutorials
+
 import org.apache.spark.sql.{SaveMode, SparkSession}
 import org.apache.log4j.{Level, Logger}
 import java.io.File

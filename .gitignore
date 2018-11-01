@@ -8,3 +8,4 @@ target
 metastore_db
 
 outfile/
+/bin/
